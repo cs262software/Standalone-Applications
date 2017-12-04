@@ -43,6 +43,7 @@ function parse( $filename = NULL, $outfilename = NULL, $options = array() )
 	$increment = array(
 		'act' => INDEX_NUMBER,
 		'scene' => INDEX_NUMBER,
+		'line' => INDEX_NUMBER,
 	);
 
 	$regex = array(
@@ -105,6 +106,7 @@ function parse( $filename = NULL, $outfilename = NULL, $options = array() )
 			fwrite( $outfile, closeTags( $openTags, 'scene' ) );
 			fwrite( $outfile, openTags( $openTags, $increment, 'scene' ) );
 			fwrite( $outfile, "<scene id='$increment[scene]' name='$array[scene]'>\n" );
+			$increment['line'] = INDEX_NUMBER;
 			$increment['scene']++;
 			$previous = 'scene';
 			$openTags[$previous] = 1;
@@ -127,9 +129,9 @@ function parse( $filename = NULL, $outfilename = NULL, $options = array() )
 			}
 			$previous = 'line';
 			// TODO: Generate proper line IDs.
-			$lineID = hash( 'crc32', "$line $count" );
 
-			fwrite( $outfile, "<line id='$lineID'$characterID><text>$array[text]\n" );
+			fwrite( $outfile, "<line id='$increment[line]'$characterID><text>$array[text]\n" );
+			$increment['line']++;
 			$openTags[$previous] = 1; $openTags['text'] = 1;
 		}
 		else
