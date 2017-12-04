@@ -27,7 +27,7 @@ Line deliniation.<br/>
 </form>
 <br/>
 <a id='outputfilename'></a>
-<textarea rows=30 disabled id='output'>
+<textarea rows=28 disabled id='output'>
 </textarea>
 <script src="https://zachdecook.com/sts/res/js/jqm.js"></script>
 <script src='index.js'></script>
