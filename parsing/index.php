@@ -16,6 +16,10 @@
 <header>
 <h1 class="title">Text to Script XML</h1>
 </header>
+<form action='myscript.php'>
+	<input type="file" id="fileBox" onchange="uploadFile();"/>
+</form>
+<br/>
 <form action='setup.php'>
 <input placeholder="filename" name="filename" type='textbox'/>
 <br/>
