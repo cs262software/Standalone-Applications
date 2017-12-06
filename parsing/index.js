@@ -29,7 +29,7 @@ $(document).ready(
 
 function reloadFile(filename)
 {
-	$("#outputfilename").html(filename).attr('href', filename);
+	$("#outputfilename").html("Download XML").attr('href', filename);
 	$.get(filename, function( my_var ) {
 		$("#output").val(my_var);
 	}, 'text');

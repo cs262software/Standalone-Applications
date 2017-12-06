@@ -27,7 +27,9 @@ img
 	max-width: 500px;
 }
 
-#output
+#output,
+input[name=filename],
+label
 {
 	width: 100%;
 }

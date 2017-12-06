@@ -21,16 +21,17 @@
 </form>
 <br/>
 <form action='setup.php'>
-<input placeholder="filename" name="filename" type='textbox'/>
+<input placeholder="No File Added" name="filename" type='textbox' disabled/>
 <br/>
-Line deliniation.<br/>
-<input type="radio" name="parsingType" value="" checked>Colon<br>
-<input type="radio" name="parsingType" value="shakes">period<br>
 <br/>
-<input type='submit'/>
+Character Name format<br/>
+<label><input type="radio" name="parsingType" value="" checked>Character Name:</label>
+<label><input type="radio" name="parsingType" value="shakes">Character. Name.</label>
+<br/>
+<input type='submit' value="Parse Script"/>
 </form>
 <br/>
-<a id='outputfilename'></a>
+<a id='outputfilename' download></a>
 <textarea rows=28 disabled id='output'>
 </textarea>
 <script src="https://zachdecook.com/sts/res/js/jqm.js"></script>
