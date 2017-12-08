@@ -16,8 +16,9 @@
 <header>
 <h1 class="title">Text to Script XML</h1>
 </header>
+Upload Plain text files only.
 <form action='myscript.php'>
-	<input type="file" id="fileBox" onchange="uploadFile();"/>
+	<input type="file" id="fileBox" onchange="uploadFile();" accept="text/plain"/>
 </form>
 <br/>
 <form action='setup.php'>
@@ -26,7 +27,7 @@
 <br/>
 Character Name format<br/>
 <label><input type="radio" name="parsingType" value="" checked>Character Name:</label>
-<label><input type="radio" name="parsingType" value="shakes">Character. Name.</label>
+<label><input type="radio" name="parsingType" value="shakes">Character Name.</label>
 <br/>
 <input type='submit' value="Parse Script"/>
 </form>
