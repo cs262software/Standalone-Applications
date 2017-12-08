@@ -157,7 +157,9 @@ function parse( $filename = NULL, $outfilename = NULL, $options = array() )
 	}
 	$characters .= "</roles>\n";
 	
-	$fileStart = "<script title='$title' author='$author'>\n$characters";
+	$fileStart = "<?xml version='1.0'?>";
+	$fileStart .= "<?xml-stylesheet type='text/xsl' href='scriptPractice.xsl'?>";
+	$fileStart .= "<script title='$title' author='$author'>\n$characters";
 	$startfiletmp = fopen( $outfilename . ".start.xml", "w");
 	fwrite($startfiletmp, $fileStart);
 
