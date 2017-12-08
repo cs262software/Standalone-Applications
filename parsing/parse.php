@@ -9,7 +9,14 @@ function parse( $filename = NULL, $outfilename = NULL, $options = array() )
 {
 	if ( ! file_exists( $filename ) ) return 'error';
 	$handle = fopen($filename, "r");
+	if (!$handle){
+		return 'error';
+	}
 	$outfile = fopen("$outfilename.end.xml", "w");
+	if( !$outfile){
+		fclose($handle);
+		return 'error';
+	}
 
 	// For our state machine we need to just remember what the last line was.
 	$previous = 'blank';
@@ -59,10 +66,12 @@ function parse( $filename = NULL, $outfilename = NULL, $options = array() )
 	ini_set('default_charset', 'utf-8');
 	include "fixMSWord.php";
 
+	$line = '';
+
 	// Read each line.
 	if ( $handle ){while (($line = fgets($handle)) !== false)
 	{
-		$line = fixMSWord( $line );
+		//$line = fixMSWord( $line );
 		$line = str_replace( '&', '&amp;', $line );
 
 		// Count actual lines (for deterministically generating line IDs)

@@ -10,3 +10,5 @@ Put scripts inside the data folder
 	- ... other files to come
 - `parse.php` can be run with php parse.php data/1524.txt shakes > output/1524poor.xml`
 
+- `tmp/` Contains the default folder for the parsing UI to use
+	(must be writeable by server) to work
